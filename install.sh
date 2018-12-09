@@ -10,7 +10,7 @@
 YELLOW="\033[1;33m"
 GREEN="\033[0;32m"
 RESET="\033[0m"
-VERSION="1.1.0"
+VERSION="1.2.0"
 
 
 : 'Display the logo'
@@ -100,7 +100,10 @@ golangInstall()
     echo -e "[$GREEN+$RESET] Installing tojson..";
     go get -u github.com/tomnomnom/hacks/tojson;
     echo -e "[$GREEN+$RESET] Done.";
-    
+
+    echo -e "[$GREEN+$RESET] Installing meg..";
+    go get -u github.com/tomnomnom/meg;
+    echo -e "[$GREEN+$RESET] Done.";
 }
 
 : 'Additional tools'

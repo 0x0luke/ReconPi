@@ -11,7 +11,7 @@ YELLOW="\033[1;33m"
 GREEN="\033[0;32m"
 RESET="\033[0m"
 ROOT="$HOME/bugbounty"
-VERSION="1.1.0"
+VERSION="1.2.0"
 
 
 : 'Display the logo'
@@ -103,6 +103,8 @@ convertDomainsFile()
 runGetJS()
 {
 	echo -e "[$GREEN+$RESET] Running $GREEN GetJS$RESET on scan results.."
+	sed 's#^#http://#g' $ROOT/$1/domains.txt > $ROOT/$1/domains-http.txt # puts the http protocol in front of the list with domains - thanks @EdOverflow :)
+	sed 's#^#https://#g' $ROOT/$1/domains.txt > $ROOT/$1/domains-https.txt
 	cat $ROOT/$1/domains.txt | getJS | tojson >> $ROOT/$1/$1-JS-files.txt
 	echo -e "[$GREEN+$RESET] Done, output has been saved to: $1-JS-files.txt"
 }

@@ -7,7 +7,7 @@ __________                          __________.__
  |    |   \  ___/\  \__(  <_> )   |  \    |   |  |
  |____|_  /\___  >\___  >____/|___|  /____|   |__|
         \/     \/     \/           \/             
-                          v1.1.0 - by @x1m_martijn
+                          v1.2.0 - by @x1m_martijn
 ```
 
 ReconPi - A lightweight recon tool that performs extensive domain scanning with the latest tools using a Raspberry Pi and GO. After the installation the ReconPi only needs an internet connection and some power, easy does it.
@@ -23,7 +23,7 @@ Check the updated blogpost here for a complete guide on how to set up your own R
 
 If you prepared your Raspberry Pi through the guide linked above you should be able to continue below.
 
-> ReconPi v1.1.0 needs the Kali Pi image to work 100%!
+> ReconPi v1.1.0 and above needs the Kali Pi image to work 100%!
 
 Connect to your ReconPi with SSH:
 
@@ -50,6 +50,12 @@ $ recon <domain.tld>
 
 `recon.sh` creates a directory named equal to the `domain.tld` provided within it's initial directory `$HOME/bugbounty`. It then starts the recon process.
 
+Tip: You can use the following example command to download scan results from the ReconPi to your main OS:
+
+`scp root@192.169.2.16:/root/bugbounty/domain.tld/domains.txt /Users/x1m/Documents/Bugbounty/hackerone/yahoo/domains.txt` 
+
+## Tools
+
 Tools that are being used at this moment:
 
  - [Hypriot OS](https://blog.hypriot.com/downloads/)
@@ -74,12 +80,17 @@ Output is written to http://192.168.2.16:4000 (replace with your own ReconPi add
  - More detailed scan results on the dashboard.
  - Add more tools.
 
+## v1.2.0 Changelog
+
+ - Expand the dashboard
+
 ## v1.1.0 Changelog
 
+- Switched to Re4son Pi Kernel: [https://re4son-kernel.com/re4son-pi-kernel/](https://whitedome.com.au/re4son/download/kali-linux-armhf-re4son/)
 - Added some more tools: 
  [GetJS](https://github.com/003random/getJS) &
  [tojson](https://github.com/tomnomnom/hacks/tojson)
-- 
+ 
 ## v1.0.2 Changelog
 
  - Fixed massdns issue; the `cp` command in `install.sh` did not work due to "
